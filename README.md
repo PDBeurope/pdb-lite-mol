@@ -87,8 +87,7 @@ The component can be used as custom element, attribute or class anywhere in the 
 | 8      | validation-annotation | _Boolean (true/false)_ <br>*(Optional Attribute)* <br>Default : 'false' |Load Validation Report Annotation (works only when tree-menu='false') |
 | 9      | domain-annotation | _Boolean (true/false)_ <br>*(Optional Attribute)* <br>Default : 'false' |Load Domain Annotation (works only when tree-menu='false') |
 | 10      | source-url | Absolute url to downlaod structure data (Optional attribute) |load specific data from a given url. Note - you have to add 'source-format' attribute to load data using this option.<br>Example: source-url="http://ftp.ebi.ac.uk/pub/databases/msd/pdbechem/files/sdf/ATP.sdf" |
-| 11      | source-format | _String_ <br>*supported format : mmcif, bcif (binarycif) , pdb, sdf - (Optional attribute) * <br>Default : 'mmcif' |This attribute is <strong>mandatory</strong> to load data using 'source-url' attribute.
-Example: source-format="sdf" |
+| 11      | source-format | _String_ <br>*supported format : mmcif, bcif (binarycif) , pdb, sdf - (Optional attribute) * <br>Default : 'mmcif' |This attribute is <strong>mandatory</strong> to load data using 'source-url' attribute. Example: source-format="sdf" |
 | 12     | display-full-map-onload | _Boolean (true/false)_ <br>*(Optional Attribute)* <br>Default : 'false' |Display full density map onload |
 | 13     | subscribe-events | _Boolean (true/false)_ <br>*(Optional Attribute)* <br>Default : 'true' |Subscribe to other PDB Components custom events. |
 
