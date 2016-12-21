@@ -1,0 +1,9 @@
+node_modules/
+.idea/
+*.log
+.DS_Store
+coverage/lcov.info
+.coveralls.yml
+examples-out
+bower_components/
+build/pdbLiteMol_browserify.js

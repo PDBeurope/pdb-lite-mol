@@ -1,0 +1,24 @@
+<!-- demo css -->
+<style>
+code {
+	padding: 2px 4px;
+	font-size: 90%;
+	color: #c7254e;
+	background-color: #f9f2f4;
+	border-radius: 4px;
+}
+</style>
+<div style="margin:20px 0 20px 20px">
+	<h3>PDB LiteMol</h3><hr>
+	<div style="float:left;position:relative;padding:15px;width:500px;">
+		<code>&lt;pdb-lite-mol pdb-id="'1cbs'" load-ed-maps="true"&gt;&lt;/pdb-lite-mol&gt;</code><br><br>
+		The viewer is responsive and takes the dimensions of its parent element. In order to set fixed dimensions please wrap it in a '&lt;div&gt;' element with desired 'height' and 'width' values. 
+		<br/>
+		Example :
+		<br/>
+		<code>&lt;div style="position:relative;height:400px;width:500px;"&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;pdb-lite-mol pdb-id="'1cbs'" load-ed-maps="true"&gt;&lt;/pdb-lite-mol&gt;<br>&lt;/div&gt;</code>
+	</div>
+	<div style="float:left;position:relative;height:400px;width:500px;">
+		<pdb-lite-mol pdb-id="'1cbs'" load-ed-maps="true"></pdb-lite-mol>
+	</div>
+</div>

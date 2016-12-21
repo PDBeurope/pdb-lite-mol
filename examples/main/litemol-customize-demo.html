@@ -1,0 +1,229 @@
+<html>
+    <head>
+		<!-- demo css -->
+		<style>
+		code {
+			padding: 2px 4px;
+			font-size: 90%;
+			color: #c7254e;
+			background-color: #f9f2f4;
+			border-radius: 4px;
+		}
+		.buttonArea {
+		  float:left;
+		  width:150px;
+		}
+
+		.buttonArea > button {
+		  margin-bottom: 10px;
+		}
+
+		.view3d {
+		  float:left;
+		  height:500px;
+		  width:500px;
+		  position:relative;
+		}
+		</style>
+		
+		<!-- AngularJS dependency library files -->
+		<script src="../../bower_components/angular/angular.min.js"></script>
+		
+		<!-- PDB LiteMol script & CSS -->
+		<link rel="stylesheet" href="../../build/pdb.litemol.min.css" />
+		<script src="../../build/pdb.litemol.min.js"></script>
+		
+		<!-- 
+		If you are developing a non-angularJs Application, 
+		bootstrap pdb.litemol' module as show below
+		-->
+		<script>
+		  //Bootstrapping / Installing the library
+		  angular.element(document).ready(function () {
+			  angular.bootstrap(document, ['pdb.litemol']);
+		  });
+		  
+		  //Method to bind component scope
+		  var bindPdbComponentScope = function(element){
+			return angular.element(element).isolateScope();
+		  }
+		  
+		  //variable to store LiteMol Component Scope which has all the methods
+		  var liteMolScope; 
+		  
+		  //bind to the component scope on window.onload
+		  window.onload = function(e) {
+			var litemolElement = document.getElementById('litemol_1cbs');
+			liteMolScope = bindPdbComponentScope(litemolElement);
+		  }
+		  
+		  /*
+		  
+		  List of available methods and their parameter details :
+		  
+		  1. hideControls()
+			 Use : hide control panel.
+			 Parameter : none
+			 
+		  2. showControls()
+			 Use : show hidden control panel.
+			 Parameter : none
+			 
+		  3. expand()
+			 Use : switch to full-screen mode.
+			 Parameter : none
+			 
+		  4. setBackground()
+			 Use : set background colour to white.
+			 Parameter : none
+			 
+		  5. loadDensity(isWireframe)
+			 Use : programatically load density.
+			 Parameter : 
+				1. isWireframe (type : boolean) (value : true / false)
+				   if set..
+				   true : shows density as wire-frame.
+				   false: shows density as surface.
+		  
+		  6. toggleDensity()
+			 Use : programatically toggle density. If density is loaded then it is shown when user clicks on any residue in the 
+				   structure. Use this method to toggle the density display.
+			 Parameter : none
+			 
+		  7. colorChains( chainId, colorArr )
+			 Use : set chain colour and greys out remaining residues colour.
+			 Parameter : 
+				1. chainId (type : string)
+				2. colorArr (type : array) (value : RGB value - example : [255,0,0] for red)
+				
+		  8. SelectExtractFocus(selectionDetails, colorCode, showSideChains)
+			 Use : Colour and focus desired range of residues in the structure
+			 Parameter : 
+				1. selectionDetails (type : object) (desired values : entity_id, struct_asym_id, start_residue_number, end_residue_number)
+				   example :
+				   {
+					 entity_id : '1', 
+					 struct_asym_id : 'A', 
+					 start_residue_number : 10, 
+					 end_residue_number : 15
+				   }
+				2. colorCode (type : object) (value : RGB value - example : {r:255, g:0, b:0} for red)
+				3. showSideChains (type : boolean) (value : true / false) (optional)
+				   if set..
+				   true : shows sidechain residues for the selected range.
+		  
+		  9. highlightOn(selectionDetails)
+			 Use : highlight desired range of residues in the structure. 
+				   Similar to SelectExtractFocus() except it do not allow colour setting and focus.
+			 Parameter : 
+				1. selectionDetails (type : object) (desired values : entity_id, struct_asym_id, start_residue_number, end_residue_number)
+				   example :
+				   {
+					 entity_id : '1', 
+					 struct_asym_id : 'A', 
+					 start_residue_number : 10, 
+					 end_residue_number : 15
+				   }
+		  
+		  10. highlightOff()
+			  Use : Removes highlight set using highlightOn() .
+			  Parameter : none
+		  
+		  11. resetThemeSelHighlight()
+			  Use : Reset any selection and highlight to default.
+			  Parameter : none
+		  
+		  */
+		  
+		  //Demo button implementation
+		  var callShowControls = function() {
+			liteMolScope.LiteMolComponent.showControls();
+		  }
+		  
+		  var callHideControls = function(){
+			liteMolScope.LiteMolComponent.hideControls();
+		  }
+		  
+		  var callExpand = function(){
+			liteMolScope.LiteMolComponent.expand();
+		  }
+		  
+		  var callSetBg = function(){
+			liteMolScope.LiteMolComponent.setBackground();
+		  }
+
+		  var callLoadDensity = function(btn){
+			liteMolScope.LiteMolComponent.loadDensity(false);
+			
+			//Disabling button to avoid reloading of maps if clicked twice :)
+			btn.disabled = true;
+			
+		  }
+		  
+		  var callToggleDensity = function(){
+			liteMolScope.LiteMolComponent.toggleDensity();
+		  }
+		  
+		  var callColorChains = function(){
+			liteMolScope.LiteMolComponent.colorChains( 'A', [255,0,0] );
+		  }
+		  
+		  var callSelectFocus = function(){
+			var selectionDetails = {
+									 entity_id : '1', 
+									 struct_asym_id : 'A', 
+									 start_residue_number : 56, 
+									 end_residue_number : 76
+								   };
+			var colorCode = {r:49, g:163, b:84};
+			var showSideChains = true;
+			liteMolScope.LiteMolComponent.SelectExtractFocus(selectionDetails, colorCode, showSideChains);
+		  }
+		  
+		  var callHighlightOn = function(){
+			var selectionDetails = {
+									 entity_id : '1', 
+									 struct_asym_id : 'G', 
+									 start_residue_number : 5, 
+									 end_residue_number : 76
+								   };
+			liteMolScope.LiteMolComponent.highlightOn(selectionDetails);
+		  }
+		  
+		  var callHighlightOff = function(){
+			liteMolScope.LiteMolComponent.highlightOff();
+		  }
+		  
+		  var callReset = function(){
+			liteMolScope.LiteMolComponent.resetThemeSelHighlight();
+		  }
+		</script>
+		
+    </head>
+    <body>
+		<div style="margin:20px 0 20px 20px">
+			<h3>LiteMol Component Demo</h3>
+			<div class="buttonArea">
+			  <button onclick="callShowControls()">Show controls</button>
+			  <button onclick="callHideControls()">Hide controls</button>
+			  <button onclick="callExpand()">Expand</button>
+			  <button onmouseover="callHighlightOn()" onmouseout="callHighlightOff()" style="width:100px;">Test Highlight on mouseover</button>
+			  <button onclick="callLoadDensity(this)">Load density</button>
+			  <br>
+			  <span>Click on any residue <br>to view density</span>
+			  <br><br>
+			  <button onclick="callToggleDensity()">Toggle density</button>
+			  <br>
+			  <span>Click 'Reset scene'<br>icon in the viewer to<br>test the features below</span>
+			  <br><br>
+			  <button onclick="callColorChains()">Color chain</button>
+			  <button onclick="callSelectFocus()">Select & Focus</button>
+			  <button onclick="callReset()">Reset to default</button>
+			  <button onclick="callSetBg()">Set background</button>
+			</div>
+			<div class="view3d">
+			  <pdb-lite-mol id="litemol_1cbs" pdb-id="'1aqd'" hide-controls="true"></pdb-lite-mol>
+			</div>
+		</div>
+	</body>
+</html>

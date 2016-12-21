@@ -1,0 +1,1 @@
+var pdbLiteMol = require("pdb-lite-mol");
