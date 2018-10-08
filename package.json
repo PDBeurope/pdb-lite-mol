@@ -17,30 +17,47 @@
   "license": "Apache-2.0",
   "main": "index.js",
   "scripts": {
-		"test": "echo 'Error: no test specified' && exit 1",
-		"build": "browserify -r ./:pdb-lite-mol -o build/pdbLiteMol_browserify.js"
+    "test": "echo 'Error: no test specified' && exit 1",
+    "build": "browserify -r ./:pdb-lite-mol -o build/pdbLiteMol_browserify.js"
   },
-  "dependencies": {},
+  "dependencies": {
+    "require-dir": "^1.1.0"
+  },
   "devDependencies": {
-	"mkdirp": "^0.5.0",
-	"browserify": "^8.1.3",
-	"del": "^0.1.1",
-	"gulp": "^3.8.7",
-	"gulp-bump": "^0.2.1",
-	"gulp-concat": "^2.3.4",
-	"gulp-git": "^1.0.0",
-	"gulp-uglify": "^0.3.1",
-	"gulp-clean-css": "^2.0.12",
-	"gulp-autoprefixer": "^3.1.1",
-	"gulp-rename": "^1.2.2",
-	"gulp-header": "^1.8.8",
-	"gulp-sourcemaps": "^1.6.0"
-  }, 
+    "mkdirp": "^0.5.0",
+    "browserify": "^8.1.3",
+    "del": "^0.1.1",
+    "gulp": "^3.8.7",
+    "gulp-bump": "^0.2.1",
+    "gulp-concat": "^2.3.4",
+    "gulp-git": "^1.0.0",
+    "gulp-uglify": "^0.3.1",
+    "gulp-clean-css": "^2.0.12",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-header": "^1.8.8",
+    "gulp-sourcemaps": "^1.6.0"
+  },
   "sniper": {
-    "js": [ "/build/pdbLiteMol_browserify.js"],
-	"css": ["/build/pdb.litemol.min.css"],
-	"snippets": ["examples/biojs"],
+    "js": [
+      "/build/pdbLiteMol_browserify.js"
+    ],
+    "css": [
+      "/build/pdb.litemol.min.css"
+    ],
+    "snippets": [
+      "examples/biojs"
+    ],
     "first": "simple"
-   }, 
-  "keywords": ["BioJS", "PDB component", "PDB LiteMol", "3D Viewer", "WebGL", "PDBe", "electron density viewer", "AngularJS"]
+  },
+  "keywords": [
+    "BioJS",
+    "PDB component",
+    "PDB LiteMol",
+    "3D Viewer",
+    "WebGL",
+    "PDBe",
+    "electron density viewer",
+    "AngularJS"
+  ]
 }
