@@ -1,18 +1,18 @@
 {
   "name": "pdb-lite-mol",
   "description": "Web-component implementation of LiteMol 3D structure viewer. LiteMol is a streamlined structure viewer which enables a PDB structure to be explored within a browser rather than requiring pre-installed molecular graphics software. It is a PDB Component developed using AngularJS.",
-  "version": "0.1.0",
-  "homepage": "https://github.com/mandarsd/pdb-lite-mol",
+  "version": "0.2.0",
+  "homepage": "https://github.com/PDBeurope/pdb-lite-mol",
   "author": {
     "name": "Mandar Deshpande",
     "email": "mandar@ebi.ac.uk"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/mandarsd/pdb-lite-mol.git"
+    "url": "git://github.com/PDBeurope/pdb-lite-mol.git"
   },
   "bugs": {
-    "url": "https://github.com/mandarsd/pdb-lite-mol/issues"
+    "url": "https://github.com/PDBeurope/pdb-lite-mol/issues"
   },
   "license": "Apache-2.0",
   "main": "index.js",
